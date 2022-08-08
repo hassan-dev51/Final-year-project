@@ -1,0 +1,64 @@
+.wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+}
+.containerdiv {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+.canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.vedio {
+  position: absolute;
+}
+.verify_div {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.button {
+  width: 75%;
+  min-width: 100px;
+  max-width: 120px;
+  margin-top: 24px;
+  margin-left: 1rem;
+  padding: 12px 24px;
+  border: none;
+  color: white;
+  background: #9c69e2;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: white;
+  color: #9c69e2;
+}
+.btn_warning {
+  position: relative;
+  display: flex;
+  padding: 10px 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 3px;
+  color: white;
+  background: #9c69e2;
+  border: 0;
+  overflow: hidden;
+}
+.btn_warning input[type="file"] {
+  cursor: pointer;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: scale(3);
+  opacity: 0;
+}
+.btn_warning svg {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}

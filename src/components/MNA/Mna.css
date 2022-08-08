@@ -1,0 +1,132 @@
+.mna_heading {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+  margin: 2rem 0rem;
+  position: sticky;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  top: 0;
+  z-index: 1;
+}
+.mna_list {
+  border: 2px solid #45a8cd;
+
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  margin: 1rem 2rem;
+}
+.mna_list_image {
+  width: 170px;
+  height: 170px;
+}
+.mna_list_image img {
+  width: 170px;
+  height: 170px;
+  border-radius: 10px;
+}
+.mna_list_titles_img {
+  display: flex;
+  align-items: center;
+}
+.mna_list_titles img {
+  height: 80px;
+}
+.mna_list_button {
+  position: absolute;
+  bottom: 6px;
+  right: 0;
+}
+.mna_list_button a {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background: #45a8cd;
+  color: white;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.main_list_div {
+  display: flex;
+  justify-content: flex-start;
+  gap: 3rem;
+  align-items: flex-end;
+}
+.searchBar {
+  height: 50px;
+  flex: 0.3;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #45a8cd;
+}
+.search {
+  margin-left: 1rem;
+}
+.search svg {
+  font-size: 1.5rem;
+  color: gainsboro;
+}
+.searchBar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: white;
+  width: 100%;
+  padding: 1rem;
+  font-size: 16px;
+}
+::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+}
+.city {
+  position: absolute;
+  top: 8px;
+  right: 11px;
+}
+.city span {
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+select {
+  padding: 10px;
+  width: 20%;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  background: aquamarine;
+}
+.custom-select {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  align-items: center;
+}
+@media screen and (max-width: 900px) {
+  .mna_heading {
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    gap: 0;
+  }
+  .main_list_div {
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .mna_list_image img {
+    width: 143px;
+    height: 143px;
+  }
+  .city span {
+    font-size: 1rem;
+  }
+}

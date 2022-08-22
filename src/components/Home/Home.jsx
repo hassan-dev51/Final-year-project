@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { HiMenu, HiX } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Vote from "../Vote/Vote";
 import "./Home.css";
 const Home = () => {
+  const navigate = useNavigate();
   const [toogle, setToogle] = useState(false);
   return (
     <div className="container">
@@ -110,9 +111,11 @@ const Home = () => {
           </div>
 
           <div className="vote_btn hero_btn">
-            <button className="btn">
-              Create Vote <AiOutlineArrowRight />
-            </button>
+            <Link to="/signin">
+              <button className="btn">
+                Create Vote <AiOutlineArrowRight />
+              </button>
+            </Link>
           </div>
         </div>
         <div className="hero_image">

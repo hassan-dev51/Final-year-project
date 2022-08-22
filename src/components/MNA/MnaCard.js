@@ -20,9 +20,11 @@ const MnaCard = ({ image, name, party, area, logo, city, link }) => {
             </div>
           </div>
           <div className="mna_list_button">
-            <span>{area}</span>
+            <span style={{ marginRight: "2rem" }}>{area}</span>
 
-            <Link to={link}>Vote</Link>
+            <Link to={link} style={{ borderBottomRightRadius: 5 }}>
+              Vote
+            </Link>
           </div>
         </div>
       </div>

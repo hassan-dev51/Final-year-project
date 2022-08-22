@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import swal from "sweetalert";
 import { AiOutlineUpload } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 import "./Verification.css";
 
@@ -109,6 +110,9 @@ const Verification = () => {
           {" "}
           Verify
         </button>
+        <Link to="/onbording">
+          <button className="button"> Next</button>
+        </Link>
       </div>
     </div>
   );

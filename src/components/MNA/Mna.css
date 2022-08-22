@@ -2,19 +2,17 @@
   display: flex;
   justify-content: space-around;
   align-items: baseline;
-  margin: 2rem 0rem;
   position: sticky;
-  left: 0;
-  right: 0;
+  width: 99%;
+  top: 0;
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  top: 0;
   z-index: 1;
 }
 .mna_list {
-  border: 2px solid #45a8cd;
+  border: 2px solid #9c69e2;
 
   background: #fff;
   border-radius: 10px;
@@ -34,6 +32,7 @@
 .mna_list_titles_img {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .mna_list_titles img {
   height: 80px;
@@ -47,7 +46,7 @@
   padding: 10px 20px;
   font-size: 16px;
   border: none;
-  background: #45a8cd;
+  background: #9c69e2;
   color: white;
   cursor: pointer;
   font-weight: bolder;
@@ -64,7 +63,7 @@
   display: flex;
   align-items: center;
   border-radius: 10px;
-  background-color: #45a8cd;
+  background-color: #9c69e2;
 }
 .search {
   margin-left: 1rem;
@@ -95,20 +94,7 @@
   font-size: 2rem;
   text-transform: capitalize;
 }
-select {
-  padding: 10px;
-  width: 20%;
-  outline: none;
-  border: none;
-  font-size: 1rem;
-  background: aquamarine;
-}
-.custom-select {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  align-items: center;
-}
+
 @media screen and (max-width: 900px) {
   .mna_heading {
     flex-direction: column;

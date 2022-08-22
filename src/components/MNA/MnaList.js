@@ -41,7 +41,7 @@ const MnaList = () => {
             logo={currElem.logo}
             image={currElem.image}
             city={currElem.city}
-            link={`${currElem.name} ${currElem.id}`}
+            link={`${currElem.id}`}
           />
         </div>
       ))}

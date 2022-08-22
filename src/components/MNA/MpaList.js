@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import Rows from "../../constants/Row";
+// import Rows from "../../constants/Row";
+import Mpa from "../../constants/Mpa";
+import MpaCard from "./MpaCard";
 import "./Mna.css";
 const MpaList = () => {
   const [search, setSearch] = useState("");
@@ -9,7 +11,7 @@ const MpaList = () => {
       <div className="mna_heading">
         <h2>MPA Candidates</h2>
         {"  "}
-        <div className="searchBar">
+        <div className="searchBar ">
           <div className="search">
             <BiSearch />
           </div>
@@ -23,33 +25,23 @@ const MpaList = () => {
         </div>
       </div>
 
-      {Rows.filter((city) => {
+      {Mpa.filter((city) => {
         if (search === "") {
           return city;
         } else if (city.city.toLowerCase().includes(search.toLowerCase())) {
           return city;
         }
       }).map((currElem, ind) => (
-        <div className="mna_list" key={ind}>
-          <div className="main_list_div">
-            <div className="mna_list_image">
-              <img src={currElem.image} alt="error" />
-            </div>
-            <div className="mna_list_titles">
-              <h3 style={{ marginLeft: 32 }}>{currElem.name}</h3>
-              <div className="mna_list_titles_img">
-                <img src={currElem.logo} alt="error" />
-                <span>{currElem.party}</span>
-                <div className="city">
-                  <span>{currElem.city}</span>
-                </div>
-              </div>
-            </div>
-            <div className="mna_list_button">
-              <span>{currElem.area}</span>
-              <button type="submit">Vote</button>
-            </div>
-          </div>
+        <div key={ind}>
+          <MpaCard
+            name={currElem.name}
+            party={currElem.party}
+            area={currElem.area}
+            logo={currElem.logo}
+            image={currElem.image}
+            city={currElem.city}
+            link={`${currElem.id}`}
+          />
         </div>
       ))}
     </div>

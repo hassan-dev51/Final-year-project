@@ -1,15 +1,48 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./OnBording.css";
 import ali from "../../assets/img/ali.jpg";
 const OnBording = () => {
+  const [userData, setUserData] = useState({});
+  const navigate = useNavigate();
+  const callOnBordingPage = async () => {
+    try {
+      const res = await fetch("/onbording", {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+      });
+      const data = await res.json();
+
+      console.log("====================================");
+      console.log(data);
+      console.log("====================================");
+      setUserData(data);
+      console.log(userData.name);
+      if (res.status === 401) {
+        alert("data is not found");
+      }
+    } catch (eror) {
+      alert("Error on sending request to the database");
+      navigate("/");
+    }
+  };
+  useEffect(() => {
+    callOnBordingPage();
+  }, []);
+
   return (
     <div>
       <div className="welcome">
         <div className="welcome_heading">
-          <h2>Welcome</h2>
-          {"  "}
-          <span>Hassan Ali</span>
+          <form method="GET">
+            <h2>Welcome</h2>
+            {"  "}
+            <span style={{ textTransform: "capitalize" }}>{userData.name}</span>
+          </form>
         </div>
         <div className="img">
           <img src={ali} alt="error" />

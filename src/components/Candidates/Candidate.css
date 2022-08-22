@@ -1,9 +1,13 @@
 .head-text {
-  font-size: 2rem;
-  font-weight: 800;
-  text-align: center;
-  color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #9c69e2;
   text-transform: capitalize;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 1;
 }
 .card {
   display: flex;
@@ -16,41 +20,32 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
 .btn-hire {
-  background-image: linear-gradient(
-    to right,
-    #e55d87 0%,
-    #5fc3e4 51%,
-    #e55d87 100%
-  );
   padding: 13px 26px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
-  background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  font-size: 1.6rem;
-  display: inline-block;
-  cursor: pointer;
   border: none;
+  background-color: #9c69e2;
+  box-shadow: 0 0 20px #eee;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
-.btn-hire:hover,
-.btn-hire:active {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
+.btn-hire:hover {
+  /* change the direction of the change here */
+  color: #000;
+  background-color: #eee;
   text-decoration: none;
-}
-.btn-portfolio {
   transform: translateY(-5px);
 }
+
 .app__profile-item {
   width: 300px;
   display: flex;
@@ -68,6 +63,33 @@
   margin: 0 auto;
   object-fit: cover;
 }
+.load {
+  display: flex;
+  justify-content: center;
+  width: 20%;
+  margin: 1rem auto;
+}
+.load button {
+  min-width: 100px;
+  max-width: 120px;
+  margin-top: 24px;
+  margin-left: 1rem;
+
+  padding: 12px 24px;
+  border: none;
+  color: white;
+  background-color: #9c69e2;
+  cursor: pointer;
+}
+.load button:hover {
+  background-color: #eee;
+  color: #9c69e2;
+}
+.active {
+  background-color: #eee;
+  color: #9c69e2;
+  transform: translateY(-5px);
+}
 @media screen and (max-width: 900px) {
   .app__profile-item {
     width: 370px;
@@ -77,14 +99,14 @@
   .app__profile-item img {
     height: 284px;
   }
-  .card {
-    display: flex;
-    flex-direction: column;
+  /*  */
+  .load {
+    width: fit-content;
   }
   .head-text {
-    font-size: 1rem;
-    font-weight: 500;
-    text-align: center;
+    font-size: 0.7rem;
+    font-weight: normal;
+    justify-content: space-around;
     color: black;
     text-transform: capitalize;
   }

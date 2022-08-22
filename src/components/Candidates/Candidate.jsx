@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 
 import "./Candidate.css";
 import candidateList from "../../constants/candidateList";
+import { Link } from "react-router-dom";
 
 const Candidate = () => {
   const [catagory, setCatagory] = useState(candidateList);
+  const [noOfElement, setNoOfElement] = useState(6);
 
   //filter method
   const filterItem = (currElem) => {
@@ -14,27 +16,40 @@ const Candidate = () => {
     });
     setCatagory(currCatagory);
   };
+
+  //load more
+
+  const slice = catagory.slice(0, noOfElement);
+  const load = () => {
+    setNoOfElement(noOfElement + 6);
+  };
   return (
     <div>
-      <div className="head-text">
-        <h2>
-          Candidates for Election <span style={{ fontSize: 60 }}>2023</span>
-        </h2>
-      </div>
+      {" "}
+      <header className="head-text">
+        <div className="backbutton">
+          <Link to="/">Home</Link>
+        </div>
+        <h2>Candidates for Election 2023</h2>
+        <div className="nextbutton">
+          <Link to="/result">Result</Link>
+        </div>
+      </header>
       <div className="btns-portfolio">
         <button
           onClick={() => {
             setCatagory(candidateList);
           }}
-          className="btn-hire btn-portfolio"
+          className={`btn-hire btn-portfolio `}
         >
           All
         </button>
+
         <button
           onClick={() => {
             filterItem("pti");
           }}
-          className="btn-hire btn-portfolio"
+          className={`btn-hire btn-portfolio `}
         >
           PTI
         </button>
@@ -42,7 +57,7 @@ const Candidate = () => {
           onClick={() => {
             filterItem("plmn");
           }}
-          className="btn-hire btn-portfolio"
+          className={`btn-hire btn-portfolio `}
         >
           PLMN
         </button>
@@ -50,21 +65,21 @@ const Candidate = () => {
           onClick={() => {
             filterItem("tlp");
           }}
-          className="btn-hire btn-portfolio"
+          className={`btn-hire btn-portfolio `}
         >
           TLP
         </button>
         <button
           onClick={() => {
-            filterItem("independent");
+            filterItem("ppp");
           }}
-          className="btn-hire btn-portfolio"
+          className={`btn-hire btn-portfolio `}
         >
           PPP
         </button>
       </div>
       <div className="card">
-        {catagory.map((currElem, ind) => (
+        {slice.map((currElem, ind) => (
           <motion.div
             key={ind}
             whileInView={{ opacity: 1 }}
@@ -76,11 +91,15 @@ const Candidate = () => {
             <h2 className="bold-text" style={{ marginTop: 20 }}>
               {currElem.name}
             </h2>
+            <span>{currElem.seat}</span>
             <div className="p-text" style={{ marginTop: 10 }}>
               {currElem.desc}
             </div>
           </motion.div>
         ))}
+      </div>
+      <div className="load">
+        <button onClick={() => load()}>Load More</button>
       </div>
     </div>
   );

@@ -1,26 +1,30 @@
 .first_party {
   background-image: url("../../assets/img/imran.jpg");
   background-size: 100% 100%;
-  height: 100vh;
-  background-attachment: fixed;
+  width: 60%;
+  height: 80vh;
+  margin: 1rem auto;
 }
 .second_party {
   background-image: url("../../assets/img/shahbaz.jpg");
   background-size: 100% 100%;
-  height: 100vh;
-  background-attachment: fixed;
+  width: 60%;
+  height: 80vh;
+  margin: 1rem auto;
 }
 .third_party {
   background-image: url("../../assets/img/asif.jpg");
   background-size: 100% 100%;
-  height: 100vh;
-  background-attachment: fixed;
+  width: 60%;
+  height: 80vh;
+  margin: 1rem auto;
 }
 .forth_party {
   background-image: url("../../assets/img/saad.jpg");
   background-size: 100% 100%;
-  height: 100vh;
-  background-attachment: fixed;
+  width: 60%;
+  height: 80vh;
+  margin: 1rem auto;
 }
 .party_heading {
   display: flex;

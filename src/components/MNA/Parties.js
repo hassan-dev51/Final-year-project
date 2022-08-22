@@ -30,9 +30,11 @@ const Parties = () => {
         </div>
       </div>
       <div className="second_party">
-        <img src={plmn} alt="error" />
         <div className="party_title">
-          <span>Shahbaz Sharif</span>
+          <div className="party_logo">
+            <img src={plmn} alt="error" />
+            <span>Shahbaz Sharif</span>
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iusto
             corporis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing
@@ -44,7 +46,10 @@ const Parties = () => {
       </div>
       <div className="third_party">
         <div className="party_title">
-          <span>Asif Ali Zardari</span>
+          <div className="party_logo">
+            <img src={ppp} alt="error" />
+            <span>Asif Ali Zardari</span>
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iusto
             corporis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing
@@ -56,7 +61,10 @@ const Parties = () => {
       </div>
       <div className="forth_party">
         <div className="party_title">
-          <span>Molana Saad Rizvi</span>
+          <div className="party_logo">
+            <img src={tlp} alt="error" />
+            <span>Saad Rizvi</span>
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iusto
             corporis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing

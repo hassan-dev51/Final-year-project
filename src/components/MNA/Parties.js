@@ -20,13 +20,6 @@ const Parties = () => {
             <img src={ptilogo} alt="error" />
             <span>Imran Khan</span>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iusto
-            corporis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Blanditiis, ut eveniet! Eos modi nulla, provident expedita
-            distinctio id aut fuga natus illum illo dicta optio, architecto
-            deserunt tenetur, quisquam quas!
-          </p>
         </div>
       </div>
       <div className="second_party">
@@ -35,13 +28,6 @@ const Parties = () => {
             <img src={plmn} alt="error" />
             <span>Shahbaz Sharif</span>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iusto
-            corporis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Blanditiis, ut eveniet! Eos modi nulla, provident expedita
-            distinctio id aut fuga natus illum illo dicta optio, architecto
-            deserunt tenetur, quisquam quas!
-          </p>
         </div>
       </div>
       <div className="third_party">
@@ -50,13 +36,6 @@ const Parties = () => {
             <img src={ppp} alt="error" />
             <span>Asif Ali Zardari</span>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iusto
-            corporis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Blanditiis, ut eveniet! Eos modi nulla, provident expedita
-            distinctio id aut fuga natus illum illo dicta optio, architecto
-            deserunt tenetur, quisquam quas!
-          </p>
         </div>
       </div>
       <div className="forth_party">
@@ -65,13 +44,6 @@ const Parties = () => {
             <img src={tlp} alt="error" />
             <span>Saad Rizvi</span>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt iusto
-            corporis nostrum. Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Blanditiis, ut eveniet! Eos modi nulla, provident expedita
-            distinctio id aut fuga natus illum illo dicta optio, architecto
-            deserunt tenetur, quisquam quas!
-          </p>
         </div>
       </div>
     </div>

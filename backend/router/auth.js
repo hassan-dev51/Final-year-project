@@ -65,7 +65,7 @@ router.post("/register", async (req, res) => {
     const userExist = await User.findOne({ cnic: cnic });
     if (userExist) {
       return res
-        .status(422)
+        .status(424)
         .json({ error: "User already exists at this cnic" });
     }
     const user = new User({ cnic, name, fname });

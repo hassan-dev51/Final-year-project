@@ -1,5 +1,5 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { SwiperSlide, Swiper } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper";
 import usmandar from "../../assets/img/usmandar.jpg";
 import Murad from "../../assets/img/Murad.jpg";

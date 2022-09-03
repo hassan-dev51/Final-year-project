@@ -3,7 +3,6 @@ import MaskedInput from "react-text-mask";
 import swal from "sweetalert";
 
 import { useNavigate } from "react-router-dom";
-import { validNameEx, validFatherNameEx } from "./validation";
 
 import "./Login.css";
 const Login = () => {
@@ -13,34 +12,6 @@ const Login = () => {
   // const [allEntry, setAllEntru] = useState([]);
   const navigate = useNavigate();
 
-  // const submitFormData = (e) => {
-  //   e.preventDefault();
-
-  //   const newEntry = { cnic: cnic, name: name, fname: fname };
-  //   setAllEntru([...allEntry, newEntry]);
-
-  //   if (cnic.length < 9) {
-  //     swal({
-  //       text: "Enter Full CNIC",
-  //       icon: "error",
-  //     });
-  //     setCnic();
-  //   } else if (!validNameEx.test(name)) {
-  //     swal({
-  //       text: "Enter Correct Name",
-  //       icon: "error",
-  //     });
-  //   } else if (!validFatherNameEx.test(fname)) {
-  //     swal({
-  //       text: "Enter Correct Father Name",
-  //       icon: "error",
-  //     });
-  //   } else {
-  //     setCnic("");
-  //     setName("");
-  //     setFname("");
-  //   }
-  // };
   const verifyData = async (e) => {
     e.preventDefault();
     const res = await fetch("/login", {
@@ -117,7 +88,9 @@ const Login = () => {
               placeholder="Enter Name"
               required
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) =>
+                setName(e.target.value.replace(/[^a-z]+[^a-z]/gi, ""))
+              }
               autoComplete="off"
             />
 
@@ -128,7 +101,9 @@ const Login = () => {
               placeholder="Father Name"
               value={fname}
               required
-              onChange={(e) => setFname(e.target.value)}
+              onChange={(e) =>
+                setFname(e.target.value.replace(/[^a-z]+[^a-z]/gi, ""))
+              }
               autoComplete="off"
             />
 

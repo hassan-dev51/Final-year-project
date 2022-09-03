@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import MaskedInput from "react-text-mask";
-import "../Login/Login.css";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+
+import "../Login/Login.css";
 const SignIn = () => {
   const navigate = useNavigate();
   const [cnic, setCnic] = useState("");
@@ -27,12 +29,13 @@ const SignIn = () => {
     const data = await res.json();
     console.log(data);
     console.log(allEntry);
-    if (res.status === 422) {
-      alert("registration nai hoi");
-    } else if (res.status === 500) {
-      alert("registration failed");
+
+    if (res.status === 424) {
+      swal({ text: "Registration Already Done", icon: "info" });
+    } else if (res.status === 422) {
+      swal({ text: "Please fil all credentials", icon: "error" });
     } else {
-      alert("registration ho gai hai");
+      swal({ text: "Registration Successful", icon: "success" });
       navigate("/login");
     }
   };
@@ -74,8 +77,11 @@ const SignIn = () => {
               type="text"
               id="name"
               placeholder="Enter Name"
+              required
               value={name}
-              onChange={(e) => setName(e.target.value)}
+              onChange={(e) =>
+                setName(e.target.value.replace(/[^a-z]+[^a-z]/gi, ""))
+              }
               autoComplete="off"
             />
 
@@ -84,8 +90,11 @@ const SignIn = () => {
               type="text"
               name="fathername"
               placeholder="Father Name"
+              required
               value={fname}
-              onChange={(e) => setFname(e.target.value)}
+              onChange={(e) =>
+                setFname(e.target.value.replace(/[^a-z]+[^a-z]/gi, ""))
+              }
               autoComplete="off"
             />
 

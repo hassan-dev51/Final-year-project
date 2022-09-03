@@ -1,8 +1,9 @@
 import React, { Suspense } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ScaleLoader } from "react-spinners";
 
-import Home from "./components/Home/Home";
+// import Home from "./components/Home/Home";
 import Candidate from "./components/Candidates/Candidate";
 import Result from "./components/Result/Result";
 // import Login from "./components/Login/Login";
@@ -16,20 +17,56 @@ import CastVote from "./components/MNA/CastVote";
 import SignIn from "./components/SignIn/SignIn";
 import MpaCastVote from "./components/MNA/MpaCastVote";
 
+const Home = React.lazy(() => import("./components/Home/Home"));
 const Login = React.lazy(() => import("./components/Login/Login"));
+const override = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh",
+};
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <Home />
+              </Suspense>
+            }
+          />
           <Route path="candidate" element={<Candidate />} />
           <Route path="result" element={<Result />} />
 
           <Route
             path="login"
             element={
-              <Suspense fallback={<div>loading....</div>}>
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
                 <Login />
               </Suspense>
             }

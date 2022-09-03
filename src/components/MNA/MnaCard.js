@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const MnaCard = ({ image, name, party, area, logo, city, link }) => {
   return (
     <div>
-      {" "}
       <div className="mna_list">
         <div className="main_list_div">
           <div className="mna_list_image">

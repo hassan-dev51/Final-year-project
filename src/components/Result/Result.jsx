@@ -17,6 +17,8 @@ import "./Result.css";
 const Result = () => {
   const [mnaData, setMnaData] = useState([]);
   const [mpaData, setMpaData] = useState([]);
+  const [loading, setloading] = useState(true);
+
   const getDataMna = async () => {
     try {
       const res = await fetch("/castvote", {
@@ -27,6 +29,7 @@ const Result = () => {
       });
 
       setMnaData(await res.json());
+      setloading(false);
     } catch (error) {
       console.log("=============error of userContact=======================");
       console.log(error);
@@ -273,7 +276,9 @@ const Result = () => {
         gujrMpaPlmn={gujrMpaPtilen}
         rawalMpaPlmn={rawalMpaPtilen}
         totalMpa={totalptimpa}
+        loading={loading}
       />
+
       <ResultCard
         partyname="PLMN"
         no="2"
@@ -289,6 +294,7 @@ const Result = () => {
         gujrMpaPlmn={gujrMpaPlmnlen}
         rawalMpaPlmn={rawalMpaPlmnlen}
         totalMpa={totalmpa}
+        loading={loading}
       />
       <ResultCard
         partyname="PPP"
@@ -305,6 +311,7 @@ const Result = () => {
         gujrMpaPlmn={gujrMpaPpplen}
         rawalMpaPlmn={rawalMpaPpplen}
         totalMpa={totalpppmpa}
+        loading={loading}
       />
       <ResultCard
         partyname="TLP"
@@ -321,6 +328,7 @@ const Result = () => {
         gujrMpaPlmn={gujraMpaTlplen}
         rawalMpaPlmn={rawalMpaTlplen}
         totalMpa={totalmpaTlp}
+        loading={loading}
       />
     </div>
   );

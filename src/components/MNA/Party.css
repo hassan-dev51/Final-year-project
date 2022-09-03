@@ -32,7 +32,12 @@
   letter-spacing: 5px;
 }
 .party_logo {
+  max-width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  margin: auto;
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 .party_logo span {
@@ -40,4 +45,7 @@
 }
 .party_logo img {
   height: 100px;
+}
+.party_title {
+  position: relative;
 }

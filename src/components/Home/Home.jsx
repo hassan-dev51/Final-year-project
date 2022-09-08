@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { HiMenu, HiX } from "react-icons/hi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Vote from "../Vote/Vote";
 import "./Home.css";
 const Home = () => {
-  const navigate = useNavigate();
   const [toogle, setToogle] = useState(false);
   return (
     <div className="container">
@@ -25,7 +24,9 @@ const Home = () => {
               <li>
                 <Link to="candidate">Candidates</Link>
               </li>
-
+              <li>
+                <Link to="parties">Parties</Link>
+              </li>
               <li>
                 <Link to="result">Results</Link>
               </li>
@@ -70,7 +71,16 @@ const Home = () => {
                     Candidates
                   </Link>
                 </li>
-
+                <li>
+                  <Link
+                    to="parties"
+                    onClick={() => {
+                      setToogle(false);
+                    }}
+                  >
+                    Parties
+                  </Link>
+                </li>
                 <li>
                   <Link
                     to="result"

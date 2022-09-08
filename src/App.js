@@ -3,22 +3,21 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ScaleLoader } from "react-spinners";
 
-// import Home from "./components/Home/Home";
-import Candidate from "./components/Candidates/Candidate";
-import Result from "./components/Result/Result";
-// import Login from "./components/Login/Login";
 import Verification from "./components/Verification/Verification";
-import OnBording from "./components/screen/OnBording";
-import MnaList from "./components/MNA/MnaList";
 import NoMatch from "./components/screen/NoMatch";
-import Parties from "./components/MNA/Parties";
-import MpaList from "./components/MNA/MpaList";
-import CastVote from "./components/MNA/CastVote";
-import SignIn from "./components/SignIn/SignIn";
-import MpaCastVote from "./components/MNA/MpaCastVote";
 
 const Home = React.lazy(() => import("./components/Home/Home"));
 const Login = React.lazy(() => import("./components/Login/Login"));
+const Parties = React.lazy(() => import("./components/Party/Parties"));
+const SignIn = React.lazy(() => import("./components/SignIn/SignIn"));
+const Candidate = React.lazy(() => import("./components/Candidates/Candidate"));
+const Result = React.lazy(() => import("./components/Result/Result"));
+const OnBording = React.lazy(() => import("./components/screen/OnBording"));
+const MpaList = React.lazy(() => import("./components/MNA/MpaList"));
+const MnaList = React.lazy(() => import("./components/MNA/MnaList"));
+const CastVote = React.lazy(() => import("./components/MNA/CastVote"));
+const MpaCastVote = React.lazy(() => import("./components/MNA/MpaCastVote"));
+
 const override = {
   display: "flex",
   justifyContent: "center",
@@ -49,8 +48,44 @@ function App() {
               </Suspense>
             }
           />
-          <Route path="candidate" element={<Candidate />} />
-          <Route path="result" element={<Result />} />
+          <Route
+            path="candidate"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <Candidate />
+              </Suspense>
+            }
+          />
+          <Route
+            path="result"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <Result />
+              </Suspense>
+            }
+          />
 
           <Route
             path="login"
@@ -72,14 +107,141 @@ function App() {
             }
           />
 
-          <Route path="signin" element={<SignIn />} />
+          <Route
+            path="signin"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <SignIn />
+              </Suspense>
+            }
+          />
+
+          <Route
+            path="parties"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <Parties />
+              </Suspense>
+            }
+          />
+          <Route
+            path="onbording"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <OnBording />
+              </Suspense>
+            }
+          />
+          <Route
+            path="onbording/mna"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <MnaList />
+              </Suspense>
+            }
+          />
+          <Route
+            path="onbording/mna/:id"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <CastVote />
+              </Suspense>
+            }
+          />
+          <Route
+            path="onbording/mpa"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <MpaList />
+              </Suspense>
+            }
+          />
+          <Route
+            path="onbording/mpa/:id"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <MpaCastVote />
+              </Suspense>
+            }
+          />
           <Route path="verify" element={<Verification />} />
-          <Route path="onbording" element={<OnBording />} />
-          <Route path="onbording/mna" element={<MnaList />} />
-          <Route path="onbording/mna/:id" element={<CastVote />} />
-          <Route path="onbording/parties" element={<Parties />} />
-          <Route path="onbording/mpa" element={<MpaList />} />
-          <Route path="onbording/mpa/:id" element={<MpaCastVote />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </BrowserRouter>

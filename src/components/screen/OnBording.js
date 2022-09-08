@@ -62,10 +62,6 @@ const OnBording = () => {
               Candidates{" "}
             </h3>
           </Link>
-
-          <Link to="parties">
-            <h4>4 Parties Registered</h4>
-          </Link>
         </div>
       </div>
       <div className="vote_available">
@@ -78,9 +74,6 @@ const OnBording = () => {
               <span style={{ fontSize: 20, letterSpacing: 1 }}>MPA</span>{" "}
               Candidates{" "}
             </h3>
-          </Link>
-          <Link to="parties">
-            <h4>4 Parties Registered</h4>
           </Link>
         </div>
       </div>

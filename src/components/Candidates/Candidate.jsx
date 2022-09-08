@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-
 import "./Candidate.css";
 import candidateList from "../../constants/candidateList";
 import { Link } from "react-router-dom";

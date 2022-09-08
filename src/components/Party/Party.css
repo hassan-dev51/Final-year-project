@@ -1,0 +1,25 @@
+.party_heading {
+  display: flex;
+  justify-content: center;
+  letter-spacing: 5px;
+}
+
+.main_image {
+  width: 30% !important;
+  margin: 10px;
+}
+
+.logo_div {
+  width: 150px !important;
+  height: 150px !important;
+}
+
+@media screen and (max-width: 900px) {
+  .main_div {
+    margin: 1re;
+  }
+  .media {
+    display: flex;
+    flex-direction: column;
+  }
+}

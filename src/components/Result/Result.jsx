@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Doughnut } from "react-chartjs-2";
 
 import imran from "../../assets/img/imran.jpg";
-import asif from "../../assets/img/asif.jpg";
 import saad from "../../assets/img/saad.jpg";
 import shahbaz from "../../assets/img/shahbaz.jpg";
 import usman from "../../assets/img/aliafzal.png";
@@ -13,6 +13,7 @@ import qari from "../../assets/img/qarisamar.png";
 
 import ResultCard from "./ResultCard";
 import "./Result.css";
+import Report from "./Report/Report";
 
 const Result = () => {
   const [mnaData, setMnaData] = useState([]);
@@ -241,10 +242,24 @@ const Result = () => {
   //total tlp
   let totalmpaTlp =
     sialMpaTlplen + lhrMpaTlplen + gujraMpaTlplen + rawalMpaTlplen;
+
+  let totalchartpti = totalPti + totalptimpa;
+  let totalchartplmn = totalPlmn + totalmpa;
+  let totalchartppp = totalppp + totalpppmpa;
+  let totalchartptlp = totalTlp + totalmpaTlp;
   useEffect(() => {
     getDataMna();
     getDataMpa();
   }, []);
+  const data = {
+    labels: ["PTI", "PLMN", "PPP", "TLP"],
+    datasets: [
+      {
+        data: [totalchartpti, totalchartplmn, totalchartppp, totalchartptlp],
+        backgroundColor: ["#e53935", "#43a047", "#3e2723", "#00c853"],
+      },
+    ],
+  };
   return (
     <div>
       <header className="result_heading">
@@ -261,6 +276,9 @@ const Result = () => {
           <span style={{ fontSize: "3rem" }}>2023</span>
         </h2>
       </header>
+      <div style={{ width: 400, margin: "0px auto" }}>
+        <Doughnut data={data} />
+      </div>
       <ResultCard
         partyname="PTI"
         image={imran}
@@ -330,6 +348,7 @@ const Result = () => {
         totalMpa={totalmpaTlp}
         loading={loading}
       />
+      <Report mnaData={mnaData} mpaData={mpaData} />
     </div>
   );
 };

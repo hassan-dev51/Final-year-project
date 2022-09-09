@@ -1,6 +1,5 @@
 import React from "react";
 import { ScaleLoader } from "react-spinners";
-
 const override = {
   display: "flex",
   justifyContent: "center",

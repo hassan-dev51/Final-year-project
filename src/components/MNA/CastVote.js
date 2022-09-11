@@ -5,18 +5,23 @@ import Rows from "../../constants/Row";
 
 const CastVote = () => {
   const [cnic, setCnic] = useState({ cnic: "" });
-  const [name, setName] = useState("");
-  const [party, setParty] = useState("");
-  const [cityname, setCityName] = useState("");
+  const [name, setName] = useState();
+  const [party, setParty] = useState();
+  const [cityname, setCityName] = useState();
+
   const { id } = useParams();
   const navigate = useNavigate();
+
   const found = Rows.filter((obj) => {
     return obj.id == id;
   });
+
   const partyName = found.map((item) => item.party);
   let party_name = partyName.toString();
+
   const candidateName = found.map((item) => item.name);
   let candidate = candidateName.toString();
+
   const city = found.map((item) => item.city);
   let city_name = city.toString();
 
@@ -55,16 +60,11 @@ const CastVote = () => {
 
       setCnic(rcvData.cnic);
 
-      console.log("====cnic================================");
-      console.log(cnic);
-      console.log("====================================");
       if (!rcvData) {
         alert("some thing went wrong");
       }
     } catch (error) {
-      console.log("=============error of userContact=======================");
       console.log(error);
-      console.log("====================================");
     }
   };
   useEffect(() => {
@@ -110,7 +110,13 @@ const CastVote = () => {
                     onChange={() => setParty(party_name)}
                   />
                 </div>
-                <div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <button className="vote_button" onClick={submitData}>
                     Cast Vote
                   </button>

@@ -54,14 +54,8 @@
   position: relative;
 }
 .vote_button {
-  min-width: 100px;
-  max-width: 120px;
-  margin-top: 24px;
   padding: 12px 24px;
   border: none;
-  position: absolute;
-  bottom: -22px;
-  transform: translate(500px, -50px);
   color: white;
   background: #9c69e2;
   cursor: pointer;

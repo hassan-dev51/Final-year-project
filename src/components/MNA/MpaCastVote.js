@@ -110,7 +110,13 @@ const MpaCastVote = () => {
                   <img src={item.logo} alt="error" />
                   <span>{item.city}</span>
                 </div>
-                <div>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <button className="vote_button" onClick={submitData}>
                     Cast Vote
                   </button>

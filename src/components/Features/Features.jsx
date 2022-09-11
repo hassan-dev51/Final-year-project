@@ -41,10 +41,10 @@ const Features = () => {
                   style={{ borderRadius: 20 }}
                 />
               </div>
-              <div className="card_title">
+              <div style={{ padding: "0px 16px" }}>
                 <h3>{currElem.title}</h3>
               </div>
-              <div className="card_para">
+              <div style={{ padding: "8px 16px" }}>
                 <p>{currElem.des}</p>
               </div>
             </div>

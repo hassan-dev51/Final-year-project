@@ -44,6 +44,9 @@
   border-radius: 15px;
   object-fit: cover;
 }
+.p-text > span {
+  font-size: 0.8rem;
+}
 @media screen and (max-width: 1200px) {
   .result_cards {
     flex-direction: column;

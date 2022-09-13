@@ -18,18 +18,18 @@ const MnaList = () => {
           <input
             type="search"
             name="search"
-            placeholder="Enter City Name"
+            placeholder="Search Area As NA-1"
             autoComplete="off"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
       </div>
 
-      {Rows.filter((city) => {
+      {Rows.filter((area) => {
         if (search === "") {
-          return city;
-        } else if (city.city.toLowerCase().includes(search.toLowerCase())) {
-          return city;
+          return area;
+        } else if (area.area.toLowerCase().includes(search.toLowerCase())) {
+          return area;
         }
         return false;
       }).map((currElem, ind) => (

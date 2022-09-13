@@ -5,7 +5,7 @@ const Rows = [
     name: "Ali Muhammad Khan",
     party: "PTI",
     logo: "/images/ptilogo.png",
-    area: "NA-52",
+    area: "NA-1",
     city: "sialkot",
   },
   {
@@ -14,7 +14,7 @@ const Rows = [
     name: "Ahsan Iqbal",
     party: "PLMN",
     logo: "/images/plmn.png",
-    area: "NA-52",
+    area: "NA-1",
     city: "sialkot",
   },
   {
@@ -23,7 +23,7 @@ const Rows = [
     name: "Ehtisham Raza",
     party: "PPP",
     logo: "/images/ppp.png",
-    area: "NA-52",
+    area: "NA-1",
     city: "sialkot",
   },
   {
@@ -32,7 +32,7 @@ const Rows = [
     name: "Chouhdary Awan",
     party: "TLP",
     logo: "/images/tlp.png",
-    area: "NA-52",
+    area: "NA-1",
     city: "sialkot",
   },
   {
@@ -41,7 +41,7 @@ const Rows = [
     name: "Murad Saeed",
     party: "PTI",
     logo: "/images/ptilogo.png",
-    area: "NA-52",
+    area: "NA-2",
     city: "rawalpindi",
   },
   {
@@ -50,7 +50,7 @@ const Rows = [
     name: "Muhammad Sajjad",
     party: "PLMN",
     logo: "/images/plmn.png",
-    area: "NA-52",
+    area: "NA-2",
     city: "rawalpindi",
   },
   {
@@ -59,7 +59,7 @@ const Rows = [
     name: "Raja Perviaz Ashraf",
     party: "PPP",
     logo: "/images/ppp.png",
-    area: "NA-52",
+    area: "NA-2",
     city: "rawalpindi",
   },
   {
@@ -68,7 +68,7 @@ const Rows = [
     name: "Saad Rizvi",
     party: "TLP",
     logo: "/images/tlp.png",
-    area: "NA-52",
+    area: "NA-2",
     city: "rawalpindi",
   },
   {
@@ -77,7 +77,7 @@ const Rows = [
     name: "Ali Afzal",
     party: "PTI",
     logo: "/images/ptilogo.png",
-    area: "NA-52",
+    area: "NA-3",
     city: "gujranwala",
   },
   {
@@ -86,7 +86,7 @@ const Rows = [
     name: "Rana Shameem",
     party: "PLMN",
     logo: "/images/plmn.png",
-    area: "NA-52",
+    area: "NA-3",
     city: "gujranwala",
   },
   {
@@ -95,7 +95,7 @@ const Rows = [
     name: "Mian Irshad",
     party: "PPP",
     logo: "/images/ppp.png",
-    area: "NA-52",
+    area: "NA-3",
     city: "gujranwala",
   },
   {
@@ -104,7 +104,7 @@ const Rows = [
     name: "Khalid",
     party: "TLP",
     logo: "/images/tlp.png",
-    area: "NA-52",
+    area: "NA-3",
     city: "gujranwala",
   },
   {
@@ -113,7 +113,7 @@ const Rows = [
     name: "Imran Khan",
     party: "PTI",
     logo: "/images/ptilogo.png",
-    area: "NA-52",
+    area: "NA-4",
     city: "lahore",
   },
   {
@@ -122,7 +122,7 @@ const Rows = [
     name: "Shahbaz Sharif",
     party: "PLMN",
     logo: "/images/plmn.png",
-    area: "NA-52",
+    area: "NA-4",
     city: "lahore",
   },
   {
@@ -131,7 +131,7 @@ const Rows = [
     name: "Bilawal Bhuto Zardari",
     party: "PPP",
     logo: "/images/ppp.png",
-    area: "NA-52",
+    area: "NA-4",
     city: "lahore",
   },
   {
@@ -140,7 +140,7 @@ const Rows = [
     name: "Engineer Rizwan",
     party: "TLP",
     logo: "/images/tlp.png",
-    area: "NA-52",
+    area: "NA-4",
     city: "lahore",
   },
 ];

@@ -9,7 +9,6 @@ const Login = () => {
   const [cnic, setCnic] = useState("");
   const [name, setName] = useState("");
   const [fname, setFname] = useState("");
-  // const [allEntry, setAllEntru] = useState([]);
   const navigate = useNavigate();
 
   const verifyData = async (e) => {
@@ -40,7 +39,7 @@ const Login = () => {
         icon: "success",
       });
       setInterval(() => {
-        navigate("/verify");
+        navigate("/onbording");
       }, 1500);
     }
   };

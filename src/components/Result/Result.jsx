@@ -348,7 +348,24 @@ const Result = () => {
         totalMpa={totalmpaTlp}
         loading={loading}
       />
-      <Report mnaData={mnaData} mpaData={mpaData} />
+      <Report
+        sialMpaTlplen={sialMpaTlplen}
+        sialMpaPlmnlen={sialMpaPlmnlen}
+        sialMpaPpplen={sialMpaPpplen}
+        sialMpaPtilen={sialMpaPtilen}
+        rawalMpaTlplen={rawalMpaTlplen}
+        rawalMpaPpplen={rawalMpaPpplen}
+        rawalMpaPlmnlen={rawalMpaPlmnlen}
+        rawalMpaPtilen={rawalMpaPtilen}
+        gujraMpaTlplen={gujraMpaTlplen}
+        gujrMpaPpplen={gujrMpaPpplen}
+        gujrMpaPlmnlen={gujrMpaPlmnlen}
+        gujrMpaPtilen={gujrMpaPtilen}
+        lhrMpaTlplen={lhrMpaTlplen}
+        lhrMpaPpplen={lhrMpaPpplen}
+        lhrMpaPlmnlen={lhrMpaPlmnlen}
+        lhrMpaPtilen={lhrMpaPtilen}
+      />
     </div>
   );
 };

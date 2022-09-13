@@ -108,7 +108,7 @@ const MpaCastVote = () => {
                 </div>
                 <div className="vote_cast_titles_img">
                   <img src={item.logo} alt="error" />
-                  <span>{item.city}</span>
+                  <span>{item.area}</span>
                 </div>
                 <div
                   style={{

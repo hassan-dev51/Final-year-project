@@ -2,41 +2,36 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
-const Report = ({ mnaData, mpaData }) => {
-  let fetchData = mnaData.filter((val) => {
-    return val.party;
-  });
-
-  let fetchDataCount = fetchData.length;
-
-  let fetchDataNo = mpaData.filter((val) => {
-    return val.party;
-  });
-  let fetchDataNoCount = fetchDataNo.length;
-
-  let fetchCity = mnaData.filter((val) => {
-    return (val.cityName = "sialkot");
-  });
-  let fetchCityNo = fetchCity.length;
-
-  let city = mpaData.filter((val) => {
-    return val.cityname == "sialkot";
-  });
-  let cityCount = city.length;
-
+const Report = ({
+  sialMpaTlplen,
+  sialMpaPlmnlen,
+  sialMpaPpplen,
+  sialMpaPtilen,
+  rawalMpaTlplen,
+  rawalMpaPpplen,
+  rawalMpaPlmnlen,
+  rawalMpaPtilen,
+  gujraMpaTlplen,
+  gujrMpaPpplen,
+  gujrMpaPlmnlen,
+  gujrMpaPtilen,
+  lhrMpaTlplen,
+  lhrMpaPpplen,
+  lhrMpaPlmnlen,
+  lhrMpaPtilen,
+}) => {
   const barChart = (
     <Bar
       data={{
         labels: [
-          "Total Votes",
-          "Sialkot",
-          "Lahore",
-          "Gujranwala",
-          "Rawalpindi",
+          "Sialkot NA-1",
+          "Rawalpindi NA-2",
+          "Gujranwala NA-3",
+          "Lahore NA-4",
         ],
         datasets: [
           {
-            label: "Total Voters",
+            label: "TLP",
             backgroundColor: [
               "#001219",
               "#4a4e69",
@@ -44,10 +39,10 @@ const Report = ({ mnaData, mpaData }) => {
               "#124559",
               "#40916c",
             ],
-            data: [155, 30, 50, 40, 35],
+            data: [sialMpaTlplen, rawalMpaTlplen, gujraMpaTlplen, lhrMpaTlplen],
           },
           {
-            label: "Casted Votes",
+            label: "PLMN",
             backgroundColor: [
               "#14213d",
               "#9a8c98",
@@ -55,7 +50,34 @@ const Report = ({ mnaData, mpaData }) => {
               "#598392",
               "#95d5b2",
             ],
-            data: [107, 26, 46, 31, 30],
+            data: [
+              sialMpaPlmnlen,
+              rawalMpaPlmnlen,
+              gujrMpaPlmnlen,
+              lhrMpaPlmnlen,
+            ],
+          },
+          {
+            label: "PPP",
+            backgroundColor: [
+              "#14213d",
+              "#9a8c98",
+              "#c77dff",
+              "#598392",
+              "#95d5b2",
+            ],
+            data: [sialMpaPpplen, rawalMpaPpplen, gujrMpaPpplen, lhrMpaPpplen],
+          },
+          {
+            label: "PTI",
+            backgroundColor: [
+              "#14213d",
+              "#9a8c98",
+              "#c77dff",
+              "#598392",
+              "#95d5b2",
+            ],
+            data: [sialMpaPtilen, rawalMpaPtilen, gujrMpaPtilen, lhrMpaPtilen],
           },
         ],
       }}

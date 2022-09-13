@@ -18,18 +18,18 @@ const MpaList = () => {
           <input
             type="search"
             name="search"
-            placeholder="Enter City Name"
+            placeholder="Search Area As NA-1"
             autoComplete="off"
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
       </div>
 
-      {Mpa.filter((city) => {
+      {Mpa.filter((area) => {
         if (search === "") {
-          return city;
-        } else if (city.city.toLowerCase().includes(search.toLowerCase())) {
-          return city;
+          return area;
+        } else if (area.area.toLowerCase().includes(search.toLowerCase())) {
+          return area;
         }
       }).map((currElem, ind) => (
         <div key={ind}>

@@ -4,7 +4,6 @@ const override = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  // height: "100vh",
 };
 const ResultCard = ({
   image,
@@ -48,27 +47,31 @@ const ResultCard = ({
           </div>
           <div className="p-text" style={{ marginTop: 10 }}>
             <h2 className="bold-text" style={{ marginTop: 20 }}>
-              Sialkot
+              Sialkot <br />
+              <span>NA-1</span>
             </h2>
             {sialkotVote}
           </div>
           <div className="p-text" style={{ marginTop: 10 }}>
             <h2 className="bold-text" style={{ marginTop: 20 }}>
-              Lahore
-            </h2>
-            {lahoreVote}
-          </div>
-          <div className="p-text" style={{ marginTop: 10 }}>
-            <h2 className="bold-text" style={{ marginTop: 20 }}>
-              Rawalpindi
+              Rawalpindi <br />
+              <span>NA-2</span>
             </h2>
             {rawalpindiVote}
           </div>
           <div className="p-text" style={{ marginTop: 10 }}>
             <h2 className="bold-text" style={{ marginTop: 20 }}>
-              Gujranwala
+              Gujranwala <br />
+              <span>NA-3</span>
             </h2>
             {gujVote}
+          </div>
+          <div className="p-text" style={{ marginTop: 10 }}>
+            <h2 className="bold-text" style={{ marginTop: 20 }}>
+              Lahore <br />
+              <span>NA-4</span>
+            </h2>
+            {lahoreVote}
           </div>
         </div>
       )}
@@ -92,27 +95,32 @@ const ResultCard = ({
           </div>
           <div className="p-text" style={{ marginTop: 10 }}>
             <h2 className="bold-text" style={{ marginTop: 20 }}>
-              Sialkot
+              Sialkot <br />
+              <span>NA-1</span>
             </h2>
             {sialMpaPlm}
           </div>
+
           <div className="p-text" style={{ marginTop: 10 }}>
             <h2 className="bold-text" style={{ marginTop: 20 }}>
-              Lahore
-            </h2>
-            {lhrMpaPlmn}
-          </div>
-          <div className="p-text" style={{ marginTop: 10 }}>
-            <h2 className="bold-text" style={{ marginTop: 20 }}>
-              Rawalpindi
+              Rawalpindi <br />
+              <span>NA-2</span>
             </h2>
             {rawalMpaPlmn}
           </div>
           <div className="p-text" style={{ marginTop: 10 }}>
             <h2 className="bold-text" style={{ marginTop: 20 }}>
-              Gujranwala
+              Gujranwala <br />
+              <span>NA-3</span>
             </h2>
             {gujrMpaPlmn}
+          </div>
+          <div className="p-text" style={{ marginTop: 10 }}>
+            <h2 className="bold-text" style={{ marginTop: 20 }}>
+              Lahore <br />
+              <span>NA-4</span>
+            </h2>
+            {lhrMpaPlmn}
           </div>
         </div>
       )}

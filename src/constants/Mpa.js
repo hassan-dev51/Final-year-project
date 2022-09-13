@@ -5,7 +5,7 @@ const Mpa = [
     name: "Usman Dar",
     party: "PTI",
     logo: "/images/ptilogo.png",
-    area: "NA-52",
+    area: "NA-1",
     city: "sialkot",
   },
   {
@@ -14,7 +14,7 @@ const Mpa = [
     name: "Khawaja Asif",
     party: "PLMN",
     logo: "/images/plmn.png",
-    area: "NA-52",
+    area: "NA-1",
     city: "sialkot",
   },
   {
@@ -23,7 +23,7 @@ const Mpa = [
     name: "Mufti Samar Abbas Attari",
     party: "TLP",
     logo: "/images/tlp.png",
-    area: "NA-52",
+    area: "NA-1",
     city: "sialkot",
   },
   {
@@ -32,7 +32,7 @@ const Mpa = [
     name: "Mr Raza Rabani Khan",
     party: "PPP",
     logo: "/images/ppp.png",
-    area: "NA-52",
+    area: "NA-1",
     city: "sialkot",
   },
   {
@@ -41,7 +41,7 @@ const Mpa = [
     name: "Ahsan Saleem",
     party: "PTI",
     logo: "/images/ptilogo.png",
-    area: "NA-52",
+    area: "NA-2",
     city: "rawalpindi",
   },
   {
@@ -50,7 +50,7 @@ const Mpa = [
     name: "Chouhdary Muhammad Iqbal",
     party: "PLMN",
     logo: "/images/plmn.png",
-    area: "NA-52",
+    area: "NA-2",
     city: "rawalpindi",
   },
   {
@@ -59,7 +59,7 @@ const Mpa = [
     name: "Mr Abid Hussain",
     party: "PPP",
     logo: "/images/ppp.png",
-    area: "NA-52",
+    area: "NA-2",
     city: "rawalpindi",
   },
   {
@@ -68,7 +68,7 @@ const Mpa = [
     name: "Hafiz Kashif Aasi",
     party: "TLP",
     logo: "/images/tlp.png",
-    area: "NA-52",
+    area: "NA-2",
     city: "rawalpindi",
   },
   {
@@ -77,7 +77,7 @@ const Mpa = [
     name: "Abdul Haye Dasti",
     party: "PTI",
     logo: "/images/ptilogo.png",
-    area: "NA-52",
+    area: "NA-3",
     city: "gujranwala",
   },
   {
@@ -86,7 +86,7 @@ const Mpa = [
     name: "Waqar Ahmed",
     party: "PLMN",
     logo: "/images/plmn.png",
-    area: "NA-52",
+    area: "NA-3",
     city: "gujranwala",
   },
   {
@@ -95,7 +95,7 @@ const Mpa = [
     name: "Syed Amin",
     party: "PPP",
     logo: "/images/ppp.png",
-    area: "NA-52",
+    area: "NA-3",
     city: "gujranwala",
   },
   {
@@ -104,7 +104,7 @@ const Mpa = [
     name: "Usama Akhtar",
     party: "TLP",
     logo: "/images/tlp.png",
-    area: "NA-52",
+    area: "NA-3",
     city: "gujranwala",
   },
   {
@@ -113,7 +113,7 @@ const Mpa = [
     name: "Ali Akhtar",
     party: "PTI",
     logo: "/images/ptilogo.png",
-    area: "NA-52",
+    area: "NA-4",
     city: "lahore",
   },
   {
@@ -122,7 +122,7 @@ const Mpa = [
     name: "Ms Bushra Butt",
     party: "PLMN",
     logo: "/images/plmn.png",
-    area: "NA-52",
+    area: "NA-4",
     city: "lahore",
   },
   {
@@ -131,7 +131,7 @@ const Mpa = [
     name: "Rana Shamshad",
     party: "PPP",
     logo: "/images/ppp.png",
-    area: "NA-52",
+    area: "NA-4",
     city: "lahore",
   },
   {
@@ -140,7 +140,7 @@ const Mpa = [
     name: "Mufti Muneeb",
     party: "TLP",
     logo: "/images/tlp.png",
-    area: "NA-52",
+    area: "NA-4",
     city: "lahore",
   },
 ];

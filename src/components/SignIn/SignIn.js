@@ -27,8 +27,6 @@ const SignIn = () => {
       body: JSON.stringify({ cnic, name, fname }),
     });
     const data = await res.json();
-    console.log(data);
-    console.log(allEntry);
 
     if (res.status === 424) {
       swal({ text: "Registration Already Done", icon: "info" });

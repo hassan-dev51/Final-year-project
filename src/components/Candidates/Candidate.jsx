@@ -1,30 +1,51 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import "./Candidate.css";
-import candidateList from "../../constants/candidateList";
 import { Link } from "react-router-dom";
+import FileBase from "react-file-base64";
+import { AiOutlineUpload } from "react-icons/ai";
+import swal from "sweetalert";
 
 const Candidate = () => {
-  const [catagory, setCatagory] = useState(candidateList);
-  const [noOfElement, setNoOfElement] = useState(6);
+  const [candidateName, setCandidateName] = useState("");
+  const [candidateCnic, setCandidateCnic] = useState("");
+  const [candidateParty, setCandidateParty] = useState("");
+  const [candidateArea, setCandidateArea] = useState("");
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [position, setPosition] = useState("");
+  const [allEntry, setAllEntry] = useState([]);
 
-  //filter method
-  const filterItem = (currElem) => {
-    const currCatagory = candidateList.filter((curparty) => {
-      return curparty.party === currElem;
+  const InputData = async (e) => {
+    e.preventDefault();
+    const newEntries = {
+      candidateName: candidateName,
+      candidateCnic: candidateCnic,
+      candidateParty: candidateParty,
+      candidateArea: candidateArea,
+      position: position,
+      selectedImage: selectedImage,
+    };
+    setAllEntry([...allEntry, newEntries]);
+
+    const res = await fetch("/candidate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        candidateName: candidateName,
+        candidateCnic: candidateCnic,
+        candidateParty: candidateParty,
+        candidateArea: candidateArea,
+        position: position,
+        selectedImage: selectedImage,
+      }),
     });
-    setCatagory(currCatagory);
+    const data = await res.json();
+    console.log(data);
   };
-
-  //load more
-
-  const slice = catagory.slice(0, noOfElement);
-  const load = () => {
-    setNoOfElement(noOfElement + 6);
-  };
+  console.log(allEntry);
   return (
     <div>
-      {" "}
       <header className="head-text">
         <div className="backbutton">
           <Link to="/">Home</Link>
@@ -34,72 +55,85 @@ const Candidate = () => {
           <Link to="/result">Result</Link>
         </div>
       </header>
-      <div className="btns-portfolio">
-        <button
-          onClick={() => {
-            setCatagory(candidateList);
-          }}
-          className={`btn-hire btn-portfolio `}
+      <form method="POST" onSubmit={InputData}>
+        <input
+          type="text"
+          value={candidateName}
+          onChange={(e) => setCandidateName(e.target.value)}
+        />
+        <input
+          type="number"
+          value={candidateCnic}
+          onChange={(e) => setCandidateCnic(e.target.value)}
+        />
+        <select
+          value={candidateParty}
+          onChange={(e) => setCandidateParty(e.target.value)}
         >
-          All
-        </button>
-
-        <button
-          onClick={() => {
-            filterItem("pti");
-          }}
-          className={`btn-hire btn-portfolio `}
-        >
-          PTI
-        </button>
-        <button
-          onClick={() => {
-            filterItem("plmn");
-          }}
-          className={`btn-hire btn-portfolio `}
-        >
-          PLMN
-        </button>
-        <button
-          onClick={() => {
-            filterItem("tlp");
-          }}
-          className={`btn-hire btn-portfolio `}
-        >
-          TLP
-        </button>
-        <button
-          onClick={() => {
-            filterItem("ppp");
-          }}
-          className={`btn-hire btn-portfolio `}
-        >
-          PPP
-        </button>
-      </div>
-      <div className="card">
-        {slice.map((currElem, ind) => (
-          <motion.div
-            key={ind}
-            whileInView={{ opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: "tween" }}
-            className="app__profile-item"
-          >
-            <img src={currElem.image} alt="about" />
-            <h2 className="bold-text" style={{ marginTop: 20 }}>
-              {currElem.name}
-            </h2>
-            <span>{currElem.seat}</span>
-            <div className="p-text" style={{ marginTop: 10 }}>
-              {currElem.desc}
-            </div>
-          </motion.div>
-        ))}
-      </div>
-      <div className="load">
-        <button onClick={() => load()}>Load More</button>
-      </div>
+          <option value="" disabled>
+            Select
+          </option>
+          <option value="pti">PTI</option>
+          <option value="ppp">PPP</option>
+          <option value="plmn">PLMN</option>
+          <option value="tlp">TLP</option>
+        </select>{" "}
+        <input
+          type="text"
+          value={candidateArea}
+          onChange={(e) => setCandidateArea(e.target.value)}
+        />
+        {/* <input
+          type="text"
+          value={position}
+          onChange={(e) => setPosition(e.target.value)}
+        /> */}
+        <select value={position} onChange={(e) => setPosition(e.target.value)}>
+          <option value="" disabled>
+            Select
+          </option>
+          <option value="mna">MNA</option>
+          <option value="mpa">MPA</option>
+        </select>{" "}
+        <div className="upload_photo">
+          <div>
+            {" "}
+            <FileBase
+              type="file"
+              multiple={false}
+              onDone={({ base64 }) =>
+                setSelectedImage({ selectedFile: base64 })
+              }
+            />
+            {/* {selectedImage && ( */}
+            {/* <div> */}
+            {/* <img
+                  alt="not fount"
+                  width={"250px"}
+                  src={URL.createObjectURL(selectedImage)}
+                />
+                <br />
+                <button onClick={() => setSelectedImage(null)}>Remove</button> */}
+            {/* </div> */}
+            {/* )} */}
+            <br />
+            <br />
+            {/* <button type="button" className="btn_warning"> */}
+            {/* <AiOutlineUpload /> Upload CNIC */}
+            {/* <input
+                type="file"
+                name="myImage"
+                accept="image/*"
+                onChange={(event) => {
+                  console.log(event.target.files[0]);
+                  setSelectedImage(event.target.files[0]);
+                }}
+              /> */}
+            {/* </button> */}
+          </div>
+        </div>
+        <button type="submit">Register</button>
+      </form>
     </div>
   );
 };

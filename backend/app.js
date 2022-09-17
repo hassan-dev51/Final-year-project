@@ -3,6 +3,7 @@ const moongoes = require("mongoose");
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const app = express();
+const bodyParser = require("body-parser");
 
 //GETTING ENV
 dotenv.config({ path: "./config.env" });
@@ -15,6 +16,7 @@ app.use(require("./router/auth"));
 // const User = require("./model/userSchema");
 //middleware
 //middle ware have three parameters res req next
+
 const middleware = (req, res, next) => {
   next();
 };

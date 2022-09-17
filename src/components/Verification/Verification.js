@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from "react";
-import swal from "sweetalert";
 import { AiOutlineUpload } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
@@ -10,56 +9,57 @@ const Verification = () => {
   const [disable, setDisable] = useState(true);
   let videoRef = useRef(null);
   let photoRef = useRef(null);
-
   //get user cam
 
-  const getUserCamera = () => {
-    navigator.mediaDevices
-      .getUserMedia({
-        video: true,
-      })
-      .then((stream) => {
-        let video = videoRef.current;
-        video.srcObject = stream;
+  // const getUserCamera = () => {
+  //   navigator.mediaDevices
+  //     .getUserMedia({
+  //       video: true,
+  //     })
+  //     .then((stream) => {
+  //       let video = videoRef.current;
+  //       video.srcObject = stream;
 
-        video.play();
-      })
-      .catch((error) => {
-        swal({
-          text: "Allow Camera To Take Image To Verify Yourself",
-          icon: "error",
-          error,
-        });
-      });
-  };
+  //       video.play();
+  //     })
+  //     .catch((error) => {
+  //       // swal({
+  //       //   text: "Allow Camera To Take Image To Verify Yourself",
+  //       //   icon: "error",
+  //       //   error,
+  //       // });
+  //       console.log(error);
+  //     });
+  // };
 
-  useEffect(() => {
-    getUserCamera();
-  }, [videoRef]);
+  // useEffect(() => {
+  //   getUserCamera();
+  // }, [videoRef]);
 
-  const takeImage = () => {
-    //set heigt and width
-    let width = 300;
-    let height = width / (16 / 9);
+  // const takeImage = () => {
+  //   //set heigt and width
+  //   let width = 300;
+  //   let height = width / (16 / 9);
 
-    let photo = photoRef.current;
-    let video = videoRef.current;
+  //   let photo = photoRef.current;
+  //   let video = videoRef.current;
 
-    //set width of pic
-    photo.width = width;
-    photo.height = height;
+  //   //set width of pic
+  //   photo.width = width;
+  //   photo.height = height;
 
-    let ctx = photo.getContext("2d");
+  //   let ctx = photo.getContext("2d");
 
-    ctx.drawImage(video, 0, 0, photo.width, photo.height);
-  };
-  let clearImage = () => {
-    let photo = photoRef.current;
-    let ctx = photo.getContext("2d");
+  //   ctx.drawImage(video, 0, 0, photo.width, photo.height);
+  // };
+  // let clearImage = () => {
+  //   let photo = photoRef.current;
+  //   let ctx = photo.getContext("2d");
 
-    ctx.clearRect(0, 0, photo.width, photo.height);
-  };
-
+  //   ctx.clearRect(0, 0, photo.width, photo.height);
+  // };
+  const takeImage = () => {};
+  const clearImage = () => {};
   return (
     <div>
       <video style={{ width: "30%", height: "30%" }} ref={videoRef}></video>

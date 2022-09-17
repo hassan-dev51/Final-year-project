@@ -17,11 +17,8 @@ const OnBording = () => {
       });
       const data = await res.json();
 
-      console.log("====================================");
-      console.log(data);
-      console.log("====================================");
       setUserData(data);
-      console.log(userData.name);
+
       if (res.status === 401) {
         alert("data is not found");
       }

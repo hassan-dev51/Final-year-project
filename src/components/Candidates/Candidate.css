@@ -90,6 +90,20 @@
   color: #9c69e2;
   transform: translateY(-5px);
 }
+.sections {
+  width: 50%;
+  margin: 2rem auto;
+  justify-content: space-between;
+  display: flex;
+  height: 400px;
+}
+.candidates_form {
+  width: 100%;
+  gap: 5px;
+}
+.capital {
+  text-transform: uppercase;
+}
 @media screen and (max-width: 900px) {
   .app__profile-item {
     width: 370px;

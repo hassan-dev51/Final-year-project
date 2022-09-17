@@ -2,7 +2,7 @@
   "name": "fyp",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:9000",
+  "proxy": "http://localhost:9000/",
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
@@ -17,6 +17,7 @@
     "react-bootstrap": "^2.5.0",
     "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
+    "react-file-base64": "^1.0.3",
     "react-icons": "^4.4.0",
     "react-input-mask": "^2.0.4",
     "react-measure": "^2.5.2",

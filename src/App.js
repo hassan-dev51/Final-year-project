@@ -147,7 +147,7 @@ function App() {
             }
           />
           <Route
-            path="onbording"
+            path="/onbording"
             element={
               <Suspense
                 fallback={

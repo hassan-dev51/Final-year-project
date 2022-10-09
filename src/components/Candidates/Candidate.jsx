@@ -41,11 +41,16 @@ const Candidate = () => {
       }),
     });
     const data = await res.json();
+    if (res.status === 201) {
+      swal({ text: "registration succussful" });
+    } else {
+      swal({ text: "Error", icon: "error" });
+    }
     console.log(data);
+    console.log(allEntry);
   };
-  console.log(allEntry);
   return (
-    <div>
+    <div className="main_candidate">
       <header className="head-text">
         <div className="backbutton">
           <Link to="/">Home</Link>
@@ -56,71 +61,78 @@ const Candidate = () => {
         </div>
       </header>
       <form method="POST" onSubmit={InputData}>
-        <input
-          type="text"
-          value={candidateName}
-          onChange={(e) => setCandidateName(e.target.value)}
-        />
-        <input
-          type="number"
-          value={candidateCnic}
-          onChange={(e) => setCandidateCnic(e.target.value)}
-        />
-        <select
-          value={candidateParty}
-          onChange={(e) => setCandidateParty(e.target.value)}
-        >
-          <option value="" disabled>
-            Select
-          </option>
-          <option value="pti">PTI</option>
-          <option value="ppp">PPP</option>
-          <option value="plmn">PLMN</option>
-          <option value="tlp">TLP</option>
-        </select>{" "}
-        <input
-          type="text"
-          value={candidateArea}
-          onChange={(e) => setCandidateArea(e.target.value)}
-        />
-        {/* <input
+        <div className="candidate_form">
+          <input
+            type="text"
+            value={candidateName}
+            onChange={(e) => setCandidateName(e.target.value)}
+            placeholder="Enter Name"
+          />
+          <input
+            type="number"
+            value={candidateCnic}
+            onChange={(e) => setCandidateCnic(e.target.value)}
+            placeholder="Enter CNIC"
+          />
+          <select
+            value={candidateParty}
+            onChange={(e) => setCandidateParty(e.target.value)}
+          >
+            <option value="" disabled>
+              Select
+            </option>
+            <option value="pti">PTI</option>
+            <option value="ppp">PPP</option>
+            <option value="plmn">PLMN</option>
+            <option value="tlp">TLP</option>
+          </select>{" "}
+          <input
+            type="text"
+            value={candidateArea}
+            onChange={(e) => setCandidateArea(e.target.value)}
+            placeholder="Enter Area"
+          />
+          {/* <input
           type="text"
           value={position}
           onChange={(e) => setPosition(e.target.value)}
         /> */}
-        <select value={position} onChange={(e) => setPosition(e.target.value)}>
-          <option value="" disabled>
-            Select
-          </option>
-          <option value="mna">MNA</option>
-          <option value="mpa">MPA</option>
-        </select>{" "}
-        <div className="upload_photo">
-          <div>
-            {" "}
-            <FileBase
-              type="file"
-              multiple={false}
-              onDone={({ base64 }) =>
-                setSelectedImage({ selectedFile: base64 })
-              }
-            />
-            {/* {selectedImage && ( */}
-            {/* <div> */}
-            {/* <img
+          <select
+            value={position}
+            onChange={(e) => setPosition(e.target.value)}
+          >
+            <option value="" disabled>
+              Select
+            </option>
+            <option value="mna">MNA</option>
+            <option value="mpa">MPA</option>
+          </select>{" "}
+          <div className="upload_photo">
+            <div>
+              {" "}
+              <FileBase
+                type="file"
+                multiple={false}
+                onDone={({ base64 }) =>
+                  setSelectedImage({ selectedFile: base64 })
+                }
+              />
+              {/* {selectedImage && ( */}
+              {/* <div> */}
+              {/* <img
                   alt="not fount"
                   width={"250px"}
                   src={URL.createObjectURL(selectedImage)}
                 />
                 <br />
                 <button onClick={() => setSelectedImage(null)}>Remove</button> */}
-            {/* </div> */}
-            {/* )} */}
-            <br />
-            <br />
-            {/* <button type="button" className="btn_warning"> */}
-            {/* <AiOutlineUpload /> Upload CNIC */}
-            {/* <input
+              {/* </div> */}
+              {/* )} */}
+              <br />
+              <br />
+              {/* <button type="button" className="btn_warning"> */}
+              {/* <AiOutlineUpload /> Upload CNIC */}
+              {/* <input
                 type="file"
                 name="myImage"
                 accept="image/*"
@@ -129,10 +141,11 @@ const Candidate = () => {
                   setSelectedImage(event.target.files[0]);
                 }}
               /> */}
-            {/* </button> */}
+              {/* </button> */}
+            </div>
           </div>
+          <button type="submit">Register</button>
         </div>
-        <button type="submit">Register</button>
       </form>
     </div>
   );

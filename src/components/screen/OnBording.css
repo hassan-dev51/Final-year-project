@@ -6,6 +6,10 @@
   box-shadow: 0 0 20px rgba(168, 168, 168, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
+.capital {
+  text-transform: capitalize;
+  font-weight: bolder;
+}
 .img {
   width: 130px;
   height: 130px;

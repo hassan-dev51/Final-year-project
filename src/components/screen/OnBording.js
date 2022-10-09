@@ -29,6 +29,7 @@ const OnBording = () => {
   };
   useEffect(() => {
     callOnBordingPage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -38,7 +39,7 @@ const OnBording = () => {
           <form method="GET">
             <h2>Welcome</h2>
             {"  "}
-            <span style={{ textTransform: "capitalize" }}>{userData.name}</span>
+            <span className="capital">{userData.name}</span>
           </form>
         </div>
         <div className="img">

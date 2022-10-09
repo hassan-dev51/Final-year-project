@@ -22,7 +22,9 @@ const candidateSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  selectedFile: String,
+  selectedFile: {
+    type: String,
+  },
 });
 
 const CANDIDATE = mongoose.model("CANDIDATE", candidateSchema);

@@ -59,8 +59,8 @@ router.post("/candidate", async (req, res) => {
   try {
     await newFetchData.save();
     res.send(201).json(newFetchData);
-    console.log(newFetchData);
   } catch (error) {
+    res.status(422).json({ error: "error" });
     console.log("Error in candidate post");
   }
 });

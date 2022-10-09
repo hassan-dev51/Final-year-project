@@ -38,9 +38,7 @@ const Login = () => {
         text: "Welcome To Polling Station",
         icon: "success",
       });
-      setInterval(() => {
-        navigate("/onbording");
-      }, 1500);
+      navigate("/onbording");
     }
   };
 

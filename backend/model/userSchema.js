@@ -13,6 +13,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  address: {
+    type: String,
+    required: true,
+  },
   tokens: [
     {
       token: {

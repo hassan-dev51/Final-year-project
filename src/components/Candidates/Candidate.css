@@ -8,27 +8,48 @@
   top: 0;
 }
 .main_candidate {
-  background: rgb(34, 193, 195);
+  background: rgb(226, 236, 236);
   background: linear-gradient(
     0deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(253, 187, 45, 1) 100%
+    rgba(226, 236, 236, 1) 0%,
+    rgba(218, 202, 244, 1) 100%
   );
-  height: 100vh;
+  min-height: 100vh;
+}
+.btn-candidate {
+  background: #9c69e2;
+  color: #ffff;
+  box-shadow: 0px 5px 5px rgba(75, 93, 104, 0.1);
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 13px 25px 13px 25px;
+  text-decoration: none;
+  width: 100px;
+}
+
+.btn-candidate:hover {
+  background: #ffff;
+  color: #9c69e2;
+  cursor: pointer;
 }
 .candidate_form {
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   max-width: 60%;
   margin: 2rem auto;
   gap: 1rem;
-  background: rgb(41, 44, 61);
-  background: linear-gradient(
+  background: rgba(41, 44, 61, 0.301);
+  /* background: linear-gradient(
     90deg,
     rgba(41, 44, 61, 1) 0%,
     rgba(35, 44, 45, 1) 0%,
     rgba(16, 37, 80, 1) 100%
-  );
+  ); */
 
   padding: 2rem;
 }
@@ -38,4 +59,9 @@
   border: none;
   border-radius: 5px;
   padding: 0.6rem;
+}
+@media screen and (max-width: 786px) {
+  .head-text {
+    font-size: 0.8rem;
+  }
 }

@@ -39,6 +39,7 @@ const Features = () => {
                   src={currElem.image}
                   alt="error"
                   style={{ borderRadius: 20 }}
+                  loading="lazy"
                 />
               </div>
               <div style={{ padding: "0px 16px" }}>

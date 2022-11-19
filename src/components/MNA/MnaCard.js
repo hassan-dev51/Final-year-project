@@ -11,7 +11,7 @@ const MnaCard = ({ image, name, party, area, logo, city, link }) => {
           <div className="mna_list_titles">
             <h3 style={{ marginLeft: 32 }}>{name}</h3>
             <div className="mna_list_titles_img">
-              <img src={logo} alt="error" />
+              <img src={logo} alt="error" loading="lazy" />
               <span>{party}</span>
               <div className="city">
                 <span>{city}</span>

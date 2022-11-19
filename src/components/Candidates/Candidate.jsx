@@ -10,40 +10,46 @@ const Candidate = () => {
   const [candidateCnic, setCandidateCnic] = useState("");
   const [candidateParty, setCandidateParty] = useState("");
   const [candidateArea, setCandidateArea] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null);
+  // const [selectedImage, setSelectedImage] = useState(null);
   const [position, setPosition] = useState("");
   const [allEntry, setAllEntry] = useState([]);
 
   const InputData = async (e) => {
     e.preventDefault();
     const newEntries = {
-      candidateName: candidateName,
-      candidateCnic: candidateCnic,
-      candidateParty: candidateParty,
-      candidateArea: candidateArea,
-      position: position,
-      selectedImage: selectedImage,
+      name: candidateName,
+      cnic: candidateCnic,
+      party: candidateParty,
+      area: candidateArea,
+      seat: position,
+      // selectedFile: selectedImage,
     };
     setAllEntry([...allEntry, newEntries]);
-
+  };
+  const NominessReg = async () => {
     const res = await fetch("/candidate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        candidateName: candidateName,
-        candidateCnic: candidateCnic,
-        candidateParty: candidateParty,
-        candidateArea: candidateArea,
-        position: position,
-        selectedImage: selectedImage,
+        name: candidateName,
+        cnic: candidateCnic,
+        party: candidateParty,
+        area: candidateArea,
+        seat: position,
+        // selectedFile: selectedImage,
       }),
     });
     const data = await res.json();
     if (res.status === 201) {
-      swal({ text: "registration succussful" });
-    } else {
+      swal({ text: "Registration succussfull" });
+      setCandidateName(" ");
+      setCandidateCnic(" ");
+      setCandidateParty();
+      setCandidateArea(" ");
+      setPosition();
+    } else if (res.status === 422) {
       swal({ text: "Error", icon: "error" });
     }
     console.log(data);
@@ -92,11 +98,6 @@ const Candidate = () => {
             onChange={(e) => setCandidateArea(e.target.value)}
             placeholder="Enter Area"
           />
-          {/* <input
-          type="text"
-          value={position}
-          onChange={(e) => setPosition(e.target.value)}
-        /> */}
           <select
             value={position}
             onChange={(e) => setPosition(e.target.value)}
@@ -110,24 +111,24 @@ const Candidate = () => {
           <div className="upload_photo">
             <div>
               {" "}
-              <FileBase
+              {/* <FileBase
                 type="file"
                 multiple={false}
                 onDone={({ base64 }) =>
                   setSelectedImage({ selectedFile: base64 })
                 }
-              />
-              {/* {selectedImage && ( */}
-              {/* <div> */}
-              {/* <img
-                  alt="not fount"
-                  width={"250px"}
-                  src={URL.createObjectURL(selectedImage)}
-                />
-                <br />
-                <button onClick={() => setSelectedImage(null)}>Remove</button> */}
-              {/* </div> */}
-              {/* )} */}
+              /> */}
+              {/* {selectedImage && (
+                <div>
+                  <img
+                    alt="not fount"
+                    width={"250px"}
+                    src={URL.createObjectURL(selectedImage)}
+                  />
+                  <br />
+                  <button onClick={() => setSelectedImage(null)}>Remove</button>
+                </div>
+              )} */}
               <br />
               <br />
               {/* <button type="button" className="btn_warning"> */}
@@ -144,7 +145,9 @@ const Candidate = () => {
               {/* </button> */}
             </div>
           </div>
-          <button type="submit">Register</button>
+          <button type="submit" onClick={NominessReg} className="btn-candidate">
+            Register
+          </button>
         </div>
       </form>
     </div>

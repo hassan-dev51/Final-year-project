@@ -9,25 +9,27 @@ const SignIn = () => {
   const [cnic, setCnic] = useState("");
   const [name, setName] = useState("");
   const [fname, setFname] = useState("");
+  const [address, setAddress] = useState("");
   const [allEntry, setAllEntry] = useState([]);
 
   const submitFormData = (e) => {
     e.preventDefault();
-    const newEntry = { cnic: cnic, name: name, fname: fname };
+    const newEntry = { cnic: cnic, name: name, fname: fname, address: address };
     setAllEntry([...allEntry, newEntry]);
   };
   const PostData = async () => {
-    let allEntry = { cnic: cnic, name: name, fname: fname };
-    allEntry = { cnic, name, fname };
+    let allEntry = { cnic: cnic, name: name, fname: fname, address: address };
+    allEntry = { cnic, name, fname, address };
+    console.log(allEntry);
     const res = await fetch("/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ cnic, name, fname }),
+      body: JSON.stringify({ cnic, name, fname, address }),
     });
     const data = await res.json();
-
+    console.log(data);
     if (res.status === 424) {
       swal({ text: "Registration Already Done", icon: "info" });
     } else if (res.status === 422) {
@@ -92,6 +94,19 @@ const SignIn = () => {
               value={fname}
               onChange={(e) =>
                 setFname(e.target.value.replace(/[^a-z]+[^a-z]/gi, ""))
+              }
+              autoComplete="off"
+            />
+
+            <label htmlFor="address">Enter City Name:</label>
+            <input
+              type="text"
+              name="address"
+              placeholder="City Name"
+              required
+              value={address}
+              onChange={(e) =>
+                setAddress(e.target.value.replace(/[^a-z]+[^a-z]/gi, ""))
               }
               autoComplete="off"
             />

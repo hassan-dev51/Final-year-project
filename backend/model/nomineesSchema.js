@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const candidateSchema = mongoose.Schema({
+const nomineesSchema = mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -22,10 +22,7 @@ const candidateSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  selectedFile: {
-    type: String,
-  },
 });
 
-const CANDIDATE = mongoose.model("CANDIDATE", candidateSchema);
-module.exports = CANDIDATE;
+const Nominees = mongoose.model("NOMINEES", nomineesSchema);
+module.exports = Nominees;

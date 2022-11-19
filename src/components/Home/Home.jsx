@@ -3,6 +3,7 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { HiMenu, HiX } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Vote from "../Vote/Vote";
+import dva from "../../assets/img/dva.jpeg";
 import "./Home.css";
 const Home = () => {
   const [toogle, setToogle] = useState(false);
@@ -10,8 +11,9 @@ const Home = () => {
     <div className="container">
       <div className="header">
         <div className="logo">
-          <div className="logo_circle"></div>
-          <div className="logo_rect"></div>
+          <img src={dva} alt="logo" width={80} height={80} loading="lazy" />
+          {/* <div className="logo_circle"></div>
+          <div className="logo_rect"></div> */}
         </div>
         <div className="nav_bar">
           <nav>

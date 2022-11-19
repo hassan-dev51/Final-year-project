@@ -1,111 +1,49 @@
+// common
 const jwt = require("jsonwebtoken");
 const express = require("express");
-const multer = require("multer");
 const router = express.Router();
 const authenticate = require("../Authenticate/authenticate");
 
+//database
 require("../db/connection");
 const User = require("../model/userSchema");
 const MNA = require("../model/mnaSchema");
 const MPA = require("../model/mpaSchema");
-const CANDIDATE = require("../model/candidateSchema");
+const Nominees = require("../model/nomineesSchema");
 
-// const Storage = multer.diskStorage({
-//   destination: "uploads",
-//   filename: (req, file, cb) => {
-//     cb(null, file.originalname);
-//   },
-// });
-// const fileFilter = (req, file, cb) => {
-//   // reject a file
-//   if (
-//     file.mimetype === "image/jpeg" ||
-//     file.mimetype === "image/png" ||
-//     file.mimetype === "image/jpg"
-//   ) {
-//     cb(null, true);
-//   } else {
-//     cb(null, false);
-//   }
-// };
-
-// const upload = multer({
-//   storage: Storage,
-//   fileFilter: fileFilter,
-// }).single("image");
-// ============================================================
-// router.post("/candidate", (req, res) => {
-//   upload(req, res, (err) => {
-//     if (err) {
-//       console.log("Eroor");
-//     } else {
-//       const createCandidate = new CANDIDATE({
-//         name: req.body.name,
-//         img: {
-//           data: req.file.filename,
-//           contentType: "image",
-//         },
-//       });
-//       createCandidate
-//         .save()
-//         .then(() => res.send("succuee"))
-//         .catch(() => res.send("failure"));
-//     }
-//   });
-// });
+//nominees
 router.post("/candidate", async (req, res) => {
-  const fetchData = req.body;
-  const newFetchData = new CANDIDATE(fetchData);
   try {
-    await newFetchData.save();
-    res.send(201).json(newFetchData);
+    const { name, cnic, party, area, seat } = req.body;
+    console.log("====================================");
+    console.log(req.body);
+    console.log("====================================");
+    if (!name || !cnic || !party || !area || !seat) {
+      return res.status(422).json({ message: "Please Fill Fields" });
+    }
+    const nomineesExist = await Nominees.findOne({ cnic: cnic });
+    if (nomineesExist) {
+      return res.status(424).json("User Exist");
+    } else {
+      const nominees = new Nominees({
+        name,
+        cnic,
+        party,
+        area,
+        seat,
+      });
+      const createNominees = await nominees.save();
+      if (createNominees) {
+        return res.status(201).json("Registered succussfully");
+      }
+    }
   } catch (error) {
-    res.status(422).json({ error: "error" });
-    console.log("Error in candidate post");
+    console.log("===========nominess error=========================");
+    console.log(error);
+    console.log("====================================");
   }
 });
-router.get("/candidate", async (req, res) => {
-  try {
-    const result = await CANDIDATE.find();
-    res.send(200).json(result);
-  } catch (err) {
-    console.log("Error in candidate");
-  }
-});
-// router.post("/candidate", upload, async (req, res) => {
-//   const { name, cnic, party, area, seat, img } = req.body;
-//   if (!name || !cnic || !party || !area || !seat || !img) {
-//     res.status(422).json({ error: "Fill all fields" });
-//   }
 
-//   try {
-//     const candidate = await CANDIDATE.findOne({ cnic: cnic });
-//     if (candidate) {
-//       return res.status(424).json({ message: "Registration already Done" });
-//     }
-//     const createCandidate = new CANDIDATE({
-//       name: req.body.name,
-//       cnic: req.body.cnic,
-//       party: req.body.party,
-//       area: req.body.area,
-//       seat: req.body.seat,
-//       img: {
-//         data: req.file.filename,
-//         contentType: "image/jpeg",
-//       },
-//     });
-//     const saveCandidate = await createCandidate.save();
-
-//     if (saveCandidate) {
-//       return res.status(200).json({ message: "Registration done" });
-//     } else {
-//       return res.status(500).json({ message: "Failed to cast vote" });
-//     }
-//   } catch (error) {
-//     console.log("error in candidate api");
-//   }
-// });
-// ============================================================//
 ///mna
 router.post("/castvote", async (req, res) => {
   const { cnic, party, name, cityname } = req.body;
@@ -153,8 +91,8 @@ router.post("/mpacastvote", async (req, res) => {
 
 //
 router.post("/register", async (req, res) => {
-  const { cnic, name, fname } = req.body;
-  if (!cnic || !name || !fname) {
+  const { cnic, name, fname, address } = req.body;
+  if (!cnic || !name || !fname || !address) {
     return res.status(422).json({ error: "Please Fill All Credentails" });
   }
   try {
@@ -164,7 +102,7 @@ router.post("/register", async (req, res) => {
         .status(424)
         .json({ error: "User already exists at this cnic" });
     }
-    const user = new User({ cnic, name, fname });
+    const user = new User({ cnic, name, fname, address });
 
     const createUser = await user.save();
 
@@ -182,12 +120,12 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     let token;
-    const { cnic, name, fname } = req.body;
-    if (!cnic || !name || !fname) {
+    const { cnic, name, fname, address } = req.body;
+    if (!cnic || !name || !fname || !address) {
       res.status(422).json({ message: "Fill credentail" });
     }
 
-    const userLogin = await User.findOne({ cnic: cnic });
+    const userLogin = await User.findOne({ cnic: cnic, address: address });
     if (userLogin) {
       token = await userLogin.generateAuthToken();
       res.cookie("jwt", token, {
@@ -195,9 +133,7 @@ router.post("/login", async (req, res) => {
         httpOnly: true,
       });
     }
-    console.log("====================================");
-    console.log(token);
-    console.log("====================================");
+
     if (!userLogin) {
       res.status(400).json({ message: "cnic not found" });
     } else {
@@ -246,6 +182,11 @@ router.get("/mpacastvote", async (req, res) => {
     console.log(e);
     console.log("====================================");
   }
+});
+//!logout
+router.get("/logout", (req, res) => {
+  res.clearCookie("jwt", { path: "/" });
+  res.status(200).send("Logout");
 });
 
 module.exports = router;

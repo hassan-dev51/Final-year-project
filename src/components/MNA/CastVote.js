@@ -80,10 +80,10 @@ const CastVote = () => {
             <div className="vote_cast_div">
               <form method="POST">
                 <div className="vote_cast_image">
-                  <img src={item.image} alt="error" />
+                  <img src={item.image} alt="error" loading="lazy" />
                 </div>
                 <div className="vote_cast_titles_img">
-                  <img src={item.logo} alt="error" />
+                  <img src={item.logo} alt="error" loading="lazy" />
                   <span>{item.area}</span>
                 </div>
                 <div className="input_div">

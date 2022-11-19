@@ -17,7 +17,7 @@ const MpaList = React.lazy(() => import("./components/MNA/MpaList"));
 const MnaList = React.lazy(() => import("./components/MNA/MnaList"));
 const CastVote = React.lazy(() => import("./components/MNA/CastVote"));
 const MpaCastVote = React.lazy(() => import("./components/MNA/MpaCastVote"));
-
+const Logout = React.lazy(() => import("./components/LogOut/Logout"));
 const override = {
   display: "flex",
   justifyContent: "center",
@@ -162,6 +162,25 @@ function App() {
                 }
               >
                 <OnBording />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/logout"
+            element={
+              <Suspense
+                fallback={
+                  <ScaleLoader
+                    color="#9c69e2"
+                    cssOverride={override}
+                    height={50}
+                    margin={7}
+                    speedMultiplier={1}
+                    width={4}
+                  />
+                }
+              >
+                <Logout />
               </Suspense>
             }
           />

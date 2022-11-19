@@ -5,7 +5,7 @@
   align-items: baseline;
   gap: 7px;
 }
-
+/* 
 .logo_rect {
   width: 20px;
   height: 35px;
@@ -18,7 +18,7 @@
 
   background: #9c69e2;
   border-radius: 20px;
-}
+} */
 span {
   font-family: "Roboto", sans-serif;
   font-style: normal;
@@ -28,7 +28,7 @@ span {
 }
 .header {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-left: 5rem;
   align-items: center;
 }

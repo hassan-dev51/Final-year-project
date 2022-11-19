@@ -9,6 +9,7 @@ const Login = () => {
   const [cnic, setCnic] = useState("");
   const [name, setName] = useState("");
   const [fname, setFname] = useState("");
+  const [address, setAddress] = useState("");
   const navigate = useNavigate();
 
   const verifyData = async (e) => {
@@ -18,7 +19,7 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ cnic, name, fname }),
+      body: JSON.stringify({ cnic, name, fname, address }),
     });
 
     const data = res.json();
@@ -100,6 +101,18 @@ const Login = () => {
               required
               onChange={(e) =>
                 setFname(e.target.value.replace(/[^a-z]+[^a-z]/gi, ""))
+              }
+              autoComplete="off"
+            />
+            <label htmlFor="address">Enter City Name:</label>
+            <input
+              type="text"
+              name="address"
+              placeholder="City Name"
+              value={address}
+              required
+              onChange={(e) =>
+                setAddress(e.target.value.replace(/[^a-z]+[^a-z]/gi, ""))
               }
               autoComplete="off"
             />

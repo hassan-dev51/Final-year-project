@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./OnBording.css";
-import ali from "../../assets/img/ali.jpg";
+import dva from "../../assets/img/dva.jpeg";
 const OnBording = () => {
   const [userData, setUserData] = useState({});
   const navigate = useNavigate();
@@ -35,24 +35,28 @@ const OnBording = () => {
   return (
     <div>
       <div className="welcome">
+        <div className="img">
+          <img src={dva} alt="error" loading="lazy" />
+        </div>
+
         <div className="welcome_heading">
           <form method="GET">
             <h2>Welcome</h2>
             {"  "}
-            <span className="capital">{userData.name}</span>
+            <span className="capital" style={{ textAlign: "center" }}>
+              {userData.name}
+            </span>
           </form>
         </div>
-        <div className="img">
-          <img src={ali} alt="error" />
-        </div>
+        <Link to="/logout">
+          <button className="btn">Log Out</button>
+        </Link>
       </div>
       <div className="para">
         <p>Voting Available</p>
       </div>
       <div className="vote_available">
-        <div className="vote_img">
-          <img src={ali} alt="error" />
-        </div>
+        <div className="vote_img">{/* <img src={ali} alt="error" /> */}</div>
         <div className="vote_name">
           <Link to="mna">
             <h3>
@@ -63,9 +67,7 @@ const OnBording = () => {
         </div>
       </div>
       <div className="vote_available">
-        <div className="vote_img">
-          <img src={ali} alt="error" />
-        </div>
+        <div className="vote_img">{/* <img src={ali} alt="error" /> */}</div>
         <div className="vote_name">
           <Link to="mpa">
             <h3>
